@@ -17,14 +17,16 @@
 \'b5\'bc\'c8\'eb\'cd\'b7\'ce\'c4\'bc\'fe\'a3\'ba#import <objc/message.h>\
 objc_msgSend(\'b6\'d4\'cf\'f3,@selector(\'b7\'bd\'b7\'a8\'c3\'fb));// Xcode 5\'d6\'ae\'ba\'f3\'b2\'bb\'c4\'dc\'ca\'b9\'d3\'c3\'b5\'d7\'b2\'e3\'a3\'ac\'d4\'daXcode\'b5\'c4Bulid setting\'c0\'ef\'c3\'e6\'ca\'e4\'c8\'ebmsg\'a3\'ac\'c9\'e8\'d6\'c3Enable  Strict Checking of objc_msgSend Calls\'ce\'aaNO\'bc\'b4\'bf\'c9\'b1\'e0\'d2\'eb\'cd\'a8\'b9\'fd\'a1\'a3\
 \
-// alloc\'ca\'c7\'d4\'da\'b6\'d1\'c0\'ef\'c3\'e6\'bf\'aa\'b1\'d9\'d2\'bb\'b8\'f6\'bf\'d5\'bc\'e4\'a3\'acp\'b6\'d4\'cf\'f3\'d4\'da\'d5\'bb\'c0\'ef\'c3\'e6\
 /**\
+Person *p = [Person alloc] init];\
+*alloc\'ca\'c7\'d4\'da\'b6\'d1\'c0\'ef\'c3\'e6\'bf\'aa\'b1\'d9\'d2\'bb\'b8\'f6\'bf\'d5\'bc\'e4\'a3\'acp\'b6\'d4\'cf\'f3\'d4\'da\'d5\'bb\'c0\'ef\'c3\'e6\
 * \'b6\'d1\'ca\'c7\'b3\'cc\'d0\'f2\'d4\'b1\'ca\'d6\'b6\'af\'bf\'aa\'b1\'d9\'bf\'d5\'bc\'e4\'a3\'ac\'d5\'bb\'ca\'c7\'cf\'b5\'cd\'b3\'bf\'aa\'b1\'d9\'bf\'d5\'bc\'e4\
 * \'ba\'af\'ca\'fd\'b5\'f7\'d3\'c3\'ca\'c7\'bf\'aa\'b1\'d9\'d5\'bb\'bf\'d5\'bc\'e4\'a3\'ac\'ca\'d7\'cf\'c8\'d2\'bb\'b8\'f6\'ba\'af\'ca\'fd\'bb\'e1\'d3\'c3\'b5\'bd\'d5\'bb\'b5\'c4128\'ce\'bb\'a3\'a8\'ba\'ec\'c9\'ab\'c7\'f8\'d3\'f2\'a3\'a9\'a3\'ac\'c8\'e7\'b9\'fb\'b2\'bb\'b9\'bb\'d3\'c3\'be\'cd\'bf\'aa\'b1\'d9\'b8\'fc\'b6\'e0\'b5\'c4\'d5\'bb\'bf\'d5\'bc\'e4\'a1\'a3\
   \'d2\'bb\'b5\'a9\'d4\'d9\'b4\'ce\'b5\'f7\'d3\'c3\'ba\'af\'ca\'fd\'a3\'ac\'be\'cd\'bb\'e1\'d4\'d9\'b4\'ce\'bf\'aa\'b1\'d9\'bf\'d5\'bc\'e4\'a1\'a3\
-* \'c4\'da\'b4\'e6\'b5\'d8\'d6\'b7 \'b4\'d3\'b5\'cd\'b5\'bd\'b8\'df\
+* \'c4\'da\'b4\'e6\'b5\'d8\'d6\'b7 \'b4\'d3\'b5\'cd\'b5\'bd\'b8\'df,\'c9\'cf\'c3\'e6\'ca\'c7\'b5\'cd\'b5\'d8\'d6\'b7\'a3\'ac\'cf\'c2\'c3\'e6\'ca\'c7\'b8\'df\'b5\'d8\'d6\'b7\'a1\'a3\
 \
 iPhone 5s\'d2\'d4\'ba\'f3CPU\'ca\'c764\'ce\'bb\'a3\'aciOS\'b5\'c4\'b2\'d9\'d7\'f7\'cf\'b5\'cd\'b3\'d2\'b2\'ca\'c764\'ce\'bb\'a3\'a8\'ca\'fd\'be\'dd\'cd\'cc\'cd\'c2\'c1\'bf\'a3\'acCPU\'a3\'a8\'d6\'d0\'d1\'eb\'b4\'a6\'c0\'ed\'c6\'f7\'a3\'a9\'ca\'fd\'be\'dd\'d7\'dc\'cf\'df\'b5\'c4\'ce\'bb\'ca\'fd\'a3\'a9\'a3\'ac\
 */\
 Person *p = [Person alloc]; ==>Person *p = objc_msgSend([Person class],@selector(alloc));\
+						 Person  *p = objc_msgSend(objc_getClass(\'a1\'b0Person\'a1\'b1),sel_registerName(\'a1\'b0alloc\'a1\'b1)); \
 [p init];==>objc_msgSend(p,@selector(init));}
